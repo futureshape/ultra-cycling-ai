@@ -18,6 +18,8 @@ from pathlib import Path
 
 import httpx
 
+from ultra_cycling_ai.config import settings
+
 
 def parse_fit_records(fit_path: str) -> list[dict]:
     """Parse a FIT file and extract records with lat/lon/etc."""
@@ -138,7 +140,7 @@ def main() -> None:
     parser.add_argument("--ride-id", default=None, help="Ride ID (auto-generated if omitted)")
     parser.add_argument("--base-url", default="http://localhost:8000", help="Backend base URL")
     parser.add_argument("--speed-multiplier", type=float, default=10, help="Playback speed (1=real-time)")
-    parser.add_argument("--tick-interval", type=int, default=120, help="Seconds between ticks")
+    parser.add_argument("--tick-interval", type=int, default=settings.tick_interval_seconds, help="Seconds between ticks")
     args = parser.parse_args()
 
     if not Path(args.fit_file).exists():
