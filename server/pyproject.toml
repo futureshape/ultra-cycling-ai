@@ -1,0 +1,38 @@
+[project]
+name = "ultra-cycling-ai"
+version = "0.1.0"
+description = "AI-powered ultra-endurance cycling assistant — cloud agent backend"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.7",
+    "openai>=1.60",
+    "aiosqlite>=0.20",
+    "fitparse>=0.0.6",
+    "gpxpy>=1.6",
+    "httpx>=0.28",
+    "astral>=3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.25",
+    "ruff>=0.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ultra_cycling_ai"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
