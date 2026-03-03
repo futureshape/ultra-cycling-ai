@@ -60,13 +60,13 @@ class ToolRegistry:
 def build_default_registry() -> ToolRegistry:
     """Create and return a registry with all built-in tools."""
     from ultra_cycling_ai.tools.route_analysis import RouteAnalysisTool
-    from ultra_cycling_ai.tools.poi_search import POISearchTool
+    # from ultra_cycling_ai.tools.poi_search import POISearchTool
     from ultra_cycling_ai.tools.weather import WeatherForecastTool
     from ultra_cycling_ai.tools.daylight import DaylightTool
 
     registry = ToolRegistry()
     registry.register(RouteAnalysisTool())
-    registry.register(POISearchTool())
+    # registry.register(POISearchTool())
     registry.register(WeatherForecastTool())
     registry.register(DaylightTool())
     return registry
